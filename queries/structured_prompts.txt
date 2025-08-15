@@ -1,0 +1,40 @@
+Structured Recipe Search Prompts (Reviews + Review Count)
+recipe type: chocolate cake | min rating: 4.8 | min reviews: 500
+
+recipe type: pasta | min rating: 4.5 | min reviews: 200
+
+recipe type: vegetarian curry | min rating: 4.6 | min reviews: 350
+
+recipe type: chicken | min rating: 4.7 | min reviews: 1000
+
+recipe type: dessert | min rating: 5.0 | min reviews: 150
+
+recipe type: soup | min rating: 4.5 | min reviews: 80
+
+recipe type: gluten free bread | min rating: 4.7 | min reviews: 220
+
+recipe type: vegan burger | min rating: 4.6 | min reviews: 500
+
+recipe type: slow cooker | min rating: 4.7 | min reviews: 900
+
+recipe type: Indian dish | min rating: 4.8 | min reviews: 300
+
+recipe type: salmon | min rating: 4.9 | min reviews: 250
+
+recipe type: Italian pasta | min rating: 4.8 | min reviews: 400
+
+recipe type: dessert | min rating: 4.9 | min reviews: 800
+
+recipe type: healthy snack | min rating: 4.7 | min reviews: 120
+
+recipe type: comfort food | min rating: 4.6 | min reviews: 500
+
+recipe type: barbecue chicken | min rating: 4.8 | min reviews: 650
+
+recipe type: salad | min rating: 4.5 | min reviews: 300
+
+recipe type: breakfast | min rating: 4.7 | min reviews: 400
+
+recipe type: low carb | min rating: 4.6 | min reviews: 150
+
+recipe type: dinner | min rating: 4.8 | min reviews: 1000

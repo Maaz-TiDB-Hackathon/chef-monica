@@ -1,0 +1,187 @@
+50 Recipe Search Prompts for Embeddings
+
+chocolate cake recipe
+
+how to make lasagna
+
+recipe for garlic butter shrimp
+
+recipes using chicken spinach and cream
+
+vegetarian recipes with lentils and sweet potato
+
+dessert recipes without eggs
+
+gluten free banana bread recipe
+
+vegan pasta with creamy sauce
+
+keto friendly snack ideas
+
+indian paneer curry recipe
+
+authentic japanese ramen recipe
+
+mexican street corn elote recipe
+
+quick breakfast recipes for busy mornings
+
+romantic dinner for two
+
+holiday baking ideas
+
+low carb high protein dinner recipe under 20 minutes
+
+healthy soup recipes for winter using seasonal vegetables
+
+chocolate dessert recipes under 300 calories
+
+simple grilled salmon recipe
+
+one pot pasta with tomato and basil
+
+homemade pizza dough and sauce
+
+spicy chicken wings with honey glaze
+
+creamy mushroom risotto recipe
+
+fresh summer salad with watermelon and feta
+
+slow cooker beef stew
+
+no bake cheesecake recipe
+
+roasted vegetables with garlic and herbs
+
+shrimp fried rice with egg
+
+breakfast smoothie with banana and oats
+
+gluten free pancakes
+
+vegan brownies with avocado
+
+low sugar muffins for kids
+
+healthy wrap recipes for lunch
+
+classic french onion soup
+
+thai green curry with chicken
+
+middle eastern falafel recipe
+
+quick stir fry with tofu and broccoli
+
+baked potato wedges with rosemary
+
+creamy chicken alfredo pasta
+
+summer barbecue side dishes
+
+indian street food chaat recipes
+
+japanese sushi rolls with salmon
+
+fresh salsa with tomatoes and cilantro
+
+greek salad with olives and feta cheese
+
+banana ice cream without added sugar
+
+stuffed bell peppers with rice and beans
+
+quick microwave mug cake recipe
+
+hearty breakfast burrito with eggs and cheese
+
+homemade granola with nuts and honey
+
+easy weeknight dinners with under 10 ingredients
+
+
+Basic prompts
+"chocolate cake recipe"
+
+"how to make lasagna"
+
+"recipe for garlic butter shrimp"
+
+Ingredient-based search
+"recipes using chicken, spinach, and cream"
+
+"vegetarian recipes with lentils and sweet potato"
+
+"dessert recipes without eggs"
+
+Dietary preference
+"gluten-free banana bread recipe"
+
+"vegan pasta with creamy sauce"
+
+"keto-friendly snack ideas"
+
+Cuisine-specific
+"Indian paneer curry recipe"
+
+"authentic Japanese ramen"
+
+"Mexican street corn (elote) recipe"
+
+Occasion-based
+"quick breakfast recipes for busy mornings"
+
+"romantic dinner for two"
+
+"holiday baking ideas"
+
+Complex query (for RAG or embeddings)
+"Find a low-carb, high-protein dinner recipe with less than 20 minutes cooking time"
+
+"Healthy soup recipes for winter using seasonal vegetables"
+
+"Chocolate dessert recipes under 300 calories"
+
+
+Recipe Search Prompts with Reviews & Review Count
+
+chocolate cake recipe with over 500 reviews
+
+pasta recipes with at least 4.5 star rating
+
+most reviewed vegetarian curry on the site
+
+top rated chicken recipes with more than 1000 reviews
+
+five star dessert recipes
+
+easy soup recipes with 4 stars or higher
+
+highest rated gluten free bread recipe
+
+vegan burger with best reviews
+
+top reviewed slow cooker recipes
+
+indian dishes with more than 300 positive reviews
+
+most popular salmon recipe based on rating
+
+best reviewed Italian pasta recipes
+
+desserts with maximum review count
+
+recipes with both high rating and high review count
+
+recipes people love for weeknight dinners
+
+best reviewed healthy snacks under 15 minutes
+
+comfort food recipes with excellent ratings
+
+highly reviewed low carb breakfast options
+
+most liked barbecue chicken recipe
+
+salad recipes with outstanding customer feedback

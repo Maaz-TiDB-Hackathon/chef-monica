@@ -1,0 +1,38 @@
+| # | Query                                            | Why Semantic Beats Keyword                                                               |
+| - | ------------------------------------------------ | ---------------------------------------------------------------------------------------- |
+| 1 | "A rich, creamy pasta without cheese"            | Cheese-free isn’t always mentioned explicitly — vector understands “dairy-free” context. |
+| 2 | "Dessert for summer that doesn’t require baking" | Recognizes “no-bake” desserts.                                                           |
+| 3 | "High-fiber vegetarian breakfast"                | Picks oatmeal, chia pudding — even without “fiber” keyword.                              |
+| 4 | "Soup similar to minestrone"                     | Finds hearty veggie soups without exact term “minestrone”.                               |
+| 5 | "Spicy street food from Thailand"                | Matches Som Tum, Pad Krapow — even if “street food” not in title.                        |
+| 6 | "Bread with a chewy crust and airy inside"       | Matches ciabatta, sourdough — concept-based.                                             |
+| 7 | "Something like shakshuka but with cheese"       | Understands relation to baked egg dishes.                                                |
+| 8 | "Kid-friendly dinner ready in under 20 minutes"  | Finds easy pasta, quesadillas without “kid-friendly” term.                               |
+
+
+🧪 How to Score the Bake-off
+Prepare Data
+
+Ensure recipe titles, instructions, ingredients, cuisine, and metadata are all available.
+
+Index text fields for full-text search and vector search separately.
+
+Run Both Searches for each query:
+
+For full-text: Use exact/boolean operators.
+
+For vector search: Use embeddings (e.g., text-embedding-3-small).
+
+Score per Query:
+
+Precision: Relevant results / Total results returned.
+
+Recall: Relevant results found / All relevant results in dataset.
+
+Optional Relevance Ranking: Rate top 5 results on a 1–5 scale.
+
+Compare:
+
+Expect Queries 1–8 to be stronger in vector.
+
+Expect Queries 9–15 to be stronger in full-text.

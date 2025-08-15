@@ -1,0 +1,38 @@
+| #  | Query                                        | Why Keyword Beats Vector       |
+| -- | -------------------------------------------- | ------------------------------ |
+| 9  | "Recipe from Nigella Lawson"                 | Exact author match.            |
+| 10 | "Contains 'sriracha' in ingredients"         | Keyword search for brand name. |
+| 11 | "Mentions 'fold gently' in instructions"     | Exact phrase search.           |
+| 12 | "Title contains 'New York Cheesecake'"       | Exact title match.             |
+| 13 | "Has both 'chickpeas' and 'spinach'"         | AND keyword filtering.         |
+| 14 | "Mentions 'vegan' in title"                  | Exact attribute match.         |
+| 15 | "Ingredient list includes 'ground turmeric'" | Precise ingredient term.       |
+
+
+
+🧪 How to Score the Bake-off
+Prepare Data
+
+Ensure recipe titles, instructions, ingredients, cuisine, and metadata are all available.
+
+Index text fields for full-text search and vector search separately.
+
+Run Both Searches for each query:
+
+For full-text: Use exact/boolean operators.
+
+For vector search: Use embeddings (e.g., text-embedding-3-small).
+
+Score per Query:
+
+Precision: Relevant results / Total results returned.
+
+Recall: Relevant results found / All relevant results in dataset.
+
+Optional Relevance Ranking: Rate top 5 results on a 1–5 scale.
+
+Compare:
+
+Expect Queries 1–8 to be stronger in vector.
+
+Expect Queries 9–15 to be stronger in full-text.

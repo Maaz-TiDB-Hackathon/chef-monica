@@ -1,0 +1,9 @@
+tenacity!=8.4.0
+langchain==0.3.9
+openai==1.98.0
+langchain-openai
+pytidb==0.0.11
+streamlit==1.35.0
+langchainhub==0.1.21
+pandas==2.3.1
+litellm==1.74.15.post1
