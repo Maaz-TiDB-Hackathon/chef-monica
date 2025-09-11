@@ -4,7 +4,7 @@ from pytidb.filters import GT, IN
 from sqlalchemy import Column, Text
 from sqlmodel import Field
 import datetime
-from chunking import bulk_insert_recipe_embeddings
+from chunking import bulk_insert_recipe_embeddings, bulk_insert_recipe_text
 
 class Recipe(TableModel):
             id: int | None = Field(default=None, primary_key=True)
@@ -49,10 +49,10 @@ class Review(TableModel):
             author_name: str = Field()
             rating: str = Field(nullable=True)
             review: str = FullTextField(fts_parser="MULTILINGUAL")
-            # review_vec: list[float] = embed_fn.VectorField(
-            #     source_field="review",
-            #     description="Embedding for review"
-            # )
+            review_vec: list[float] = embed_fn.VectorField(
+                source_field="review",
+                description="Embedding for review"
+            )
             date_submitted: datetime.datetime = Field(
                 default_factory=lambda: datetime.datetime.now(datetime.UTC)
             )
@@ -162,6 +162,19 @@ def get_recipe_text_for_embedding(recipe):
         | Instructions: {sanitize_text(recipe.recipe_instructions)}
         """
 
+def get_recipe_text_for_fts(recipe):
+    """
+    Constructs a text representation of a recipe for embedding.
+    """
+    return f"""ID: {sanitize_text(recipe.id)}
+        | Name: {sanitize_text(recipe.name)} 
+        | Description: {sanitize_text(recipe.description)}
+        | Category: {sanitize_text(recipe.recipe_category)}
+        | Keywords: {sanitize_text(recipe.keywords)}
+        | Ingredients: {sanitize_text(recipe.recipe_ingredients)}
+        | Instructions: {sanitize_text(recipe.recipe_instructions)}
+        """
+
 def get_recipe_table():
     """
     Returns the recipe table from TiDB.
@@ -176,7 +189,7 @@ def get_review_table():
     review_table = tidb_client.create_table(schema=Review, if_exists="skip")
     return review_table
 
-def insert_all_recipe_embeddings(last_id: int = 0, batch_size: int = 10):
+def insert_all_recipe_embeddings_and_text(last_id: int = 0, batch_size: int = 10):
     """
     Inserts all recipe and review embeddings into the database.
     Args:
@@ -185,18 +198,26 @@ def insert_all_recipe_embeddings(last_id: int = 0, batch_size: int = 10):
     recipe_table = get_recipe_table()
     print(f"Starting to insert embeddings for recipes starting from ID {last_id}...")
     recipe_list = recipe_table.query(filters={"id": {GT: last_id}}, order_by={"id": "asc"}, limit=batch_size).to_pydantic()
-    recipe_text_dict = {}
+    recipe_text_dict_for_embedding = {}
+    recipe_text_dict_for_fts = {}
     for recipe in recipe_list:
         if recipe.id <= last_id:
             continue
         last_id = recipe.id
         # Prepare the text for embedding
-        recipe_text_dict[recipe.id] = get_recipe_text_for_embedding(recipe)
-    bulk_insert_recipe_embeddings(recipe_text_dict, batch_size=batch_size)
-    insert_all_recipe_embeddings(last_id=last_id, batch_size=batch_size)
+        recipe_text_dict_for_embedding[recipe.id] = get_recipe_text_for_embedding(recipe)
+        recipe_text_dict_for_fts[recipe.id] = get_recipe_text_for_fts(recipe)
+    print(f"before insertion last_id={last_id}")
+    bulk_insert_recipe_embeddings(recipe_text_dict_for_embedding, batch_size=batch_size)
+    bulk_insert_recipe_text(recipe_text_dict_for_fts)
+    print(f"inserted")
+    return last_id
+    #insert_all_recipe_embeddings_and_text(last_id=last_id, batch_size=batch_size)
 
-#insert_all_recipe_embeddings(37, batch_size=3)  # Start from the beginning with a batch size of 10
-
+# max_recipe_id = 455245
+# while True:
+#     print(f"max_recipe_id={max_recipe_id}")
+#     max_recipe_id = insert_all_recipe_embeddings_and_text(max_recipe_id, batch_size=100)  # Start from the beginning with a batch size of 10
 #recipe = get_recipe_table().query(filters={"id": 56}).to_pydantic()[0]  # Ensure the table is created
 # review_list = get_review_table().query(filters={"recipe_id": recipe.id}).to_pydantic()
 #recipe_text = get_recipe_text_for_embedding(recipe)
